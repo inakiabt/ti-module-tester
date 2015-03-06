@@ -70,6 +70,7 @@ utils-module/
    package.json
    spec/
       utils_spec.js
+   ti-module-tester/
 ```
 
 utils.js

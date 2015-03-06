@@ -96,3 +96,36 @@ describe('utils module', function(){
 
 After setup the environment, running `grunt test` I'll get something like this:
 <img src="http://i.imgur.com/s8vgjlO.png" height="300">
+
+## Author
+
+**Iñaki Abete**  
+web: http://github.com/inakiabt  
+email: inakiabt+github@gmail.com  
+twitter: @inakiabt  
+
+
+## Contribute
+
+Found a bug? Want to contribute and add a new feature?
+
+Please fork this project and send me a pull request!
+
+License
+-------
+
+This library, *ti-module-tester*, is free software ("Licensed Software"); you can
+redistribute it and/or modify it under the terms of the [GNU Lesser General
+Public License](http://www.gnu.org/licenses/lgpl-2.1.html) as published by the
+Free Software Foundation; either version 2.1 of the License, or (at your
+option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; including but not limited to, the implied warranty of MERCHANTABILITY,
+NONINFRINGEMENT, or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+Public License for more details.
+
+You should have received a copy of the [GNU Lesser General Public
+License](http://www.gnu.org/licenses/lgpl-2.1.html) along with this library; if
+not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth
+Floor, Boston, MA 02110-1301 USA

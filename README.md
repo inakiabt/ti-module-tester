@@ -32,6 +32,7 @@ grunt ; grunt test
 ```
 ...wait your app is running then `CTRL+C` and that's it!
 
+###### In case you don't want to clone this project in your project, you can clone it anywhere and use `--module-dir /path/to/your/module` param.
 ## How it works
 This `Gruntfile.js` provides some tasks to setup a temp Titanium app and test your module with it using TiShadow.
 

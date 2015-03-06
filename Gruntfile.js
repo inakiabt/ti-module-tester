@@ -113,6 +113,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('test', [
+        'copy:specs',
         'tishadow:test'
     ]);
 
@@ -124,7 +125,6 @@ module.exports = function(grunt) {
         'mkdir:appify',
         'tishadow:appify',
         'unzip:module',
-        'copy:specs',
         'copy:jasmin-expect',
         'tiapp:addmodule'
     ]);

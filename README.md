@@ -24,6 +24,7 @@ Once the app is running run this in another terminal:
 cd /path/to/your-module/ti-module-tester
 grunt test
 ```
+---
 
 If you don't want to open a new terminal you can run 
 ```bash

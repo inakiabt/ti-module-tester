@@ -14,6 +14,7 @@ module.exports = function(grunt) {
             create: {
                 options: {
                     command: 'create',
+                    id: 'grunttitanium.' + appName.replace('-', ''),
                     name: appName,
                     projectDir: projectDir,
                     workspaceDir: workspaceDir

@@ -1,11 +1,11 @@
 module.exports = function(grunt) {
     var path = require('path');
-    var appName = "example",
-        moduleDir = grunt.option('module-dir') || '..',
-        workspaceDir = "./tmp",
+    var moduleDir = grunt.option('module-dir') || '..',
+        json = grunt.file.readJSON(moduleDir + '/package.json'),
+        appName = json.name + '-tests',
+        workspaceDir = "tmp",
         projectDir = workspaceDir + '/' + appName,
-        projectAppifiedDir = projectDir + '/appify',
-        json = grunt.file.readJSON('./package.json');
+        projectAppifiedDir = projectDir + '/appify';
 
     grunt.initConfig({
         pkg: json,
@@ -36,8 +36,8 @@ module.exports = function(grunt) {
         copy: {
             specs: {
                 expand: true,
-                src: 'spec/**',
-                dest: projectAppifiedDir
+                src: moduleDir + '/spec/**',
+                dest: projectAppifiedDir + '/spec'
             },
             'jasmin-expect': {
                 expand: true,
@@ -107,6 +107,7 @@ module.exports = function(grunt) {
 
         tiapp.setModule(json.name, json.version);
         tiapp.write();
+        grunt.log.ok('Module "' + json.name + '" version ' + json.version + ' added');
     });
 
     grunt.registerTask('test', [

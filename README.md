@@ -33,10 +33,10 @@ grunt ; grunt test
 ...wait your app is running then `CTRL+C` and that's it!
 
 ## How it works
-This is a `Gruntfile.js` provides some tasks to setup a temp Titanium app and test your module with it using TiShadow.
+This `Gruntfile.js` provides some tasks to setup a temp Titanium app and test your module with it using TiShadow.
 
 Tasks provided:
-### grunt
+### grunt [default]
 It will:
  - Create a temp Titanium app
  - Build your titaniumified module

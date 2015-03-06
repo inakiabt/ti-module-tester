@@ -37,7 +37,8 @@ module.exports = function(grunt) {
         copy: {
             specs: {
                 expand: true,
-                src: moduleDir + '/spec/**',
+                cwd: moduleDir + '/spec',
+                src: './**',
                 dest: projectAppifiedDir + '/spec'
             },
             'jasmin-expect': {

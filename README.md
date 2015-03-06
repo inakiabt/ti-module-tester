@@ -4,8 +4,8 @@ A simple Gruntfile.js to test your "[titaniumified](https://github.com/smclab/ti
 ## The basics
 Just clone this repo in your module folder and install dependencies:
 ```bash
-git clone https://github.com/inakiabt/titaniumified-module-tester
-cd titaniumified-module-tester
+git clone https://github.com/inakiabt/ti-module-tester
+cd ti-module-tester
 npm install
 ```
 
@@ -21,13 +21,13 @@ grunt
 
 Once the app is running run this in another terminal:
 ```bash
-cd /path/to/your-module/titaniumified-module-tester
+cd /path/to/your-module/ti-module-tester
 grunt test
 ```
 
 If you don't want to open a new terminal you can run 
 ```bash
-cd titaniumified-module-tester
+cd ti-module-tester
 grunt ; grunt test
 ```
 ...wait your app is running then `CTRL+C` and that's it!
@@ -42,7 +42,7 @@ It will:
  - Build your titaniumified module
  - Install your module in the temp app
  - Copy some jasmine utils
- - Appify (https://github.com/dbankier/TiShadow#tishadow-appify) the app
+ - Appify [https://github.com/dbankier/TiShadow#tishadow-appify](https://github.com/dbankier/TiShadow#tishadow-appify) the app
  - and build the app
 
 *Required for setup the environment*

@@ -158,6 +158,6 @@ module.exports = function(grunt) {
         'app:build'
     ]);
 
-    grunt.registerTask('default', ['app:setup', 'app:build']);
+    grunt.registerTask('default', ['app:setup', 'app:build', 'test']);
 
 };

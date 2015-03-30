@@ -9,29 +9,12 @@ cd ti-module-tester
 npm install
 ```
 
-Run the TiShadow server in another terminal:
-```bash
-tishadow server
-```
-
 Run this:
 ```bash
 grunt
 ```
 
-Once the app is running run this in another terminal:
-```bash
-cd /path/to/your-module/ti-module-tester
-grunt test
-```
----
-
-If you don't want to open a new terminal you can run 
-```bash
-cd ti-module-tester
-grunt ; grunt test
-```
-...wait your app is running then `CTRL+C` and that's it!
+...and that's it!
 
 ###### In case you don't want to clone this project in your project, you can clone it anywhere and use `--module-dir /path/to/your/module` param.
 ## How it works
@@ -45,7 +28,8 @@ It will:
  - Install your module in the temp app
  - Copy some jasmine utils
  - Appify [https://github.com/dbankier/TiShadow#tishadow-appify](https://github.com/dbankier/TiShadow#tishadow-appify) the app
- - and build the app
+ - Build the app
+ - and run your tests
 
 *Required for setup the environment*
  

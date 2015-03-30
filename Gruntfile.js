@@ -5,7 +5,8 @@ module.exports = function(grunt) {
         appName = json.name + '-tests',
         workspaceDir = "tmp",
         projectDir = workspaceDir + '/' + appName,
-        projectAppifiedDir = projectDir + '/appify';
+        projectAppifiedDir = projectDir + '/appify',
+        successString = '[object YyTidynamicfontModule] loaded';
 
     grunt.initConfig({
         pkg: json,
@@ -24,7 +25,8 @@ module.exports = function(grunt) {
                 options: {
                     command: 'build',
                     platform: 'ios',
-                    projectDir: projectAppifiedDir
+                    projectDir: projectAppifiedDir,
+                    success: successString
                 }
             },
             clean: {

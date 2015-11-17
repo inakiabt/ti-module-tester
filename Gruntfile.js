@@ -1,15 +1,19 @@
+'use strict';
+
 module.exports = function(grunt) {
     var path = require('path');
     var moduleDir = grunt.option('module-dir') || '..',
         json = grunt.file.readJSON(moduleDir + '/package.json'),
         appName = json.name + '-tests',
-        workspaceDir = "tmp",
+        workspaceDir = 'tmp',
         projectDir = workspaceDir + '/' + appName,
         projectAppifiedDir = projectDir + '/appify',
+        moduleType = json.titaniumManifest && json.titaniumManifest.type ? json.titaniumManifest.type : 'commonjs',
         successString = '[object YyTidynamicfontModule] loaded';
 
     grunt.initConfig({
         pkg: json,
+        moduleType: moduleType,
 
         titanium: {
             create: {
@@ -37,6 +41,12 @@ module.exports = function(grunt) {
             }
         },
         copy: {
+            'native-module-built': {
+                expand: true,
+                cwd: moduleDir + '/iphone',
+                src: './*.zip',
+                dest: './dist'
+            },
             specs: {
                 expand: true,
                 cwd: moduleDir + '/spec',
@@ -59,9 +69,7 @@ module.exports = function(grunt) {
         },
         unzip: {
             module: {
-                src: [
-                    'dist/<%= pkg.name %>-commonjs-<%= pkg.version %>.zip'
-                ],
+                src: 'dist/<%= pkg.name %>-<%= moduleType %>-<%= pkg.version %>.zip',
                 dest: projectAppifiedDir
             }
         },
@@ -86,6 +94,15 @@ module.exports = function(grunt) {
                 }
             }
         },
+        run: {
+            'build-native-module': {
+                options: {
+                    cwd: moduleDir + '/iphone'
+                },
+                type: 'shell',
+                cmd: './build.py'
+            }
+        },
         titaniumifier: {
             build: {
                 files: {
@@ -96,7 +113,7 @@ module.exports = function(grunt) {
                     module: true
                 }
             }
-        },
+        }
     });
 
     grunt.loadNpmTasks('grunt-titanium');
@@ -105,6 +122,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-zip');
     grunt.loadNpmTasks('grunt-mkdir');
+    grunt.loadNpmTasks('grunt-run');
+
+    var buildTaskName = moduleType === 'iphone' ? 'native:build' : 'titaniumifier:build';
 
     grunt.registerTask('tiapp:addmodule', function() {
         var tiapp = require('tiapp.xml').load(projectAppifiedDir + '/tiapp.xml');
@@ -113,6 +133,11 @@ module.exports = function(grunt) {
         tiapp.write();
         grunt.log.ok('Module "' + json.name + '" version ' + json.version + ' added');
     });
+
+    grunt.registerTask('native:build', [
+        'run:build-native-module',
+        'copy:native-module-built'
+    ]);
 
     grunt.registerTask('test', [
         'copy:specs',
@@ -133,7 +158,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('app:setup', [
         'titanium:create',
-        'titaniumifier:build',
+        buildTaskName,
         'appify'
     ]);
 
@@ -143,11 +168,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('clear', [
         'test:clear',
-        'titanium:clean',
+        'titanium:clean'
     ]);
 
     grunt.registerTask('module:build', [
-        'titaniumifier:build',
+        buildTaskName,
         'unzip:module',
         'tiapp:addmodule'
     ]);

@@ -1,5 +1,5 @@
-# Titaniumified Module Tester
-A simple Gruntfile.js to test your "[titaniumified](https://github.com/smclab/titaniumifier)" common js module in two commands using [TiShadow](https://github.com/dbankier/TiShadow) (`tishadow spec` for more information about run tests with TiShadow -> [here](https://github.com/dbankier/TiShadow#testing--assertions))
+# Titanium Module Tester
+A simple Gruntfile.js to test your "[titaniumified](https://github.com/smclab/titaniumifier)" common js and iOS (Android coming soon) native modules in two commands using [TiShadow](https://github.com/dbankier/TiShadow) (`tishadow spec` for more information about run tests with TiShadow -> [here](https://github.com/dbankier/TiShadow#testing--assertions))
 
 ## The basics
 Just clone this repo in your module folder and install dependencies:
@@ -15,6 +15,18 @@ grunt
 ```
 
 ...and that's it!
+
+In case you want to test iOS native modules, just add this to your module `package.json`:
+```json
+{
+  "name": "your-module-name",
+  "version": "your-version", // It must match with the version in your manifest file
+  "titaniumManifest": {
+    "type": "iphone"
+  },
+  ...
+}
+```
 
 ###### In case you don't want to clone this project in your project, you can clone it anywhere and use `--module-dir /path/to/your/module` param.
 ## How it works
@@ -32,7 +44,7 @@ It will:
  - and run your tests
 
 *Required for setup the environment*
- 
+
 ### grunt test
 It will:
  - Update/copy your module specs
@@ -83,10 +95,10 @@ After setup the environment, running `grunt test` I'll get something like this:
 
 ## Author
 
-**Iñaki Abete**  
-web: http://github.com/inakiabt  
-email: inakiabt+github@gmail.com  
-twitter: @inakiabt  
+**Iñaki Abete**
+web: http://github.com/inakiabt
+email: inakiabt+github@gmail.com
+twitter: @inakiabt
 
 
 ## Contribute

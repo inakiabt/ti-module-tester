@@ -1,6 +1,6 @@
 {
   "name": "titaniumified-module-tests",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A simple Gruntfile.js to test your \"titaniumified\" common js module in two commands",
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "grunt-contrib-copy": "^0.8.0",
     "grunt-copy": "^0.1.0",
     "grunt-mkdir": "^0.1.2",
+    "grunt-run": "^0.5.2",
     "grunt-tishadow": "^1.0.1",
     "grunt-titanium": "^0.3.1",
     "grunt-titaniumifier": "^1.1.0",
